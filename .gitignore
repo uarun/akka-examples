@@ -1,5 +1,6 @@
 *.class
 *.log
+.cache
 
 # gradle specific
 .gradle/
