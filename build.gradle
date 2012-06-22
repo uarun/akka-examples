@@ -1,0 +1,33 @@
+apply plugin: 'scala'
+
+ext {
+    versions  = [:]
+    libraries = [:]
+}
+
+versions += [
+    akka : '2.0'
+]
+
+libraries += [
+	//... Akka
+	akka_actor  : "com.typesafe.akka:akka-actor:${versions.akka}",
+	akka_remote : "com.typesafe.akka:akka-remote:${versions.akka}",	
+]
+
+repositories {
+    maven { url 'http://repo.typesafe.com/typesafe/releases/' }  //... Typesafe's maven repo
+}
+
+dependencies {
+	scalaTools 'org.scala-lang:scala-compiler:2.9.1'
+	scalaTools 'org.scala-lang:scala-library:2.9.1'
+
+	compile 'org.scala-lang:scala-library:2.9.1'
+	
+	compile libraries.akka_actor
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.0'
+}

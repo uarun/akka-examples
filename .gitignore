@@ -1,6 +1,10 @@
 *.class
 *.log
 
+# gradle specific
+.gradle/
+build/
+
 # sbt specific
 dist/*
 target/
